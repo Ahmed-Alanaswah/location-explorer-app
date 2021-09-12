@@ -13,6 +13,7 @@ export class App extends Component {
 			lat: "",
 			lon: "",
 			map: "",
+
 			showData: false,
 		};
 	}
