@@ -9,7 +9,7 @@ This Project connects the user to API servers to get data related to cities, hen
 
 ## Getting Started
 
-npx create_react_app "Name of project"
+`npx create_react_app "Name of project"`
 
 ## Architecture
 
@@ -35,4 +35,4 @@ Finish time: 11:30pm
 
 Actual time needed to complete: 9 Hours
 
-![ web request-response cycle]('../src/img/plan.jpg')
+![ web request-response cycle]('/home/ahmedalanasweh/location-explorer/src/img/plan.jpg')
