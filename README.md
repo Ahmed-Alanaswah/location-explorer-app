@@ -35,4 +35,4 @@ Finish time: 11:30pm
 
 Actual time needed to complete: 9 Hours
 
-![ web request-response cycle]('/home/ahmedalanasweh/location-explorer/src/img/plan.jpg')
+![ web request-response cycle]('src/img/plan.jpg')
