@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./formStyle.css";
 export class SearchForm extends Component {
 	render() {
 		return (
