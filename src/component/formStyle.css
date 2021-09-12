@@ -17,8 +17,9 @@ form {
 	width: 80%;
 
 	padding: 15px;
-	border-radius: 10px;
+	border-radius: 20px 0;
 	margin: 20px auto;
+	box-shadow: 10px 10px 10px #150050;
 }
 
 h1 {
@@ -26,6 +27,8 @@ h1 {
 	padding: 10px;
 	background-color: #150050;
 	color: #fff;
+	border-radius: 20px 0;
+	box-shadow: 10px 10px 10px #150050;
 }
 
 h3 {
@@ -33,10 +36,14 @@ h3 {
 	color: #fff;
 	padding: 10px;
 	text-align: center;
+	border-radius: 20px 0;
+	box-shadow: 10px 10px 10px #150050;
 }
 
 img {
 	margin: auto;
 	margin: 15px;
 	border: 10px ridge #150050;
+	border-radius: 20px 0;
+	box-shadow: 10px 10px 10px #150050;
 }
