@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Location from "./component/Location";
 import SearchForm from "./component/SearchForm";
 import axios from "axios";
