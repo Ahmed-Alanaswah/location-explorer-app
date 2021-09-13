@@ -13,7 +13,7 @@ export class App extends Component {
 			lat: "",
 			lon: "",
 			map: "",
-
+			weatherData: [],
 			showData: false,
 		};
 	}
@@ -32,16 +32,28 @@ export class App extends Component {
 			method: "GET",
 			baseURL: `https://api.locationiq.com/v1/autocomplete.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city_name}`,
 		};
-		axios(config).then((res) => {
-			let responseData = res.data[0];
-			this.setState({
-				city_name: responseData.display_name,
-				lon: responseData.lon,
-				lat: responseData.lat,
-				map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${responseData.lat},${responseData.lon}&zoom=1-18`,
-				showData: true,
+		axios(config)
+			.then((res) => {
+				let responseData = res.data[0];
+				this.setState({
+					city_name: responseData.display_name,
+					lon: responseData.lon,
+					lat: responseData.lat,
+					map: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${responseData.lat},${responseData.lon}&zoom=1-18`,
+					showData: true,
+				});
+			})
+			.then(() => {
+				axios
+					.get(
+						`http://${process.env.REACT_APP_BACKEND_URL}/weather-data?lat=${this.state.lat}&lon=${this.state.lon}`
+					)
+					.then((res) => {
+						this.setState({
+							weatherData: res.data,
+						});
+					});
 			});
-		});
 	};
 	render() {
 		return (
@@ -59,6 +71,14 @@ export class App extends Component {
 						map={this.state.map}
 					/>
 				)}
+				{this.state.weatherData.map((item) => {
+					return (
+						<>
+							<h1>{item.datetime}</h1>
+							<h1>{item.description}</h1>
+						</>
+					);
+				})}
 			</div>
 		);
 	}
