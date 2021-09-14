@@ -87,7 +87,7 @@ export class App extends Component {
 				{this.state.weatherData.map((item) => {
 					return (
 						<>
-							<h1>{item.datetime}</h1>
+							<h1>{item.date}</h1>
 							<h1>{item.description}</h1>
 						</>
 					);
