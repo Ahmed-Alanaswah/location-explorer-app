@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Location from "./component/Location";
 import SearchForm from "./component/SearchForm";
 import axios from "axios";
+import { Alert } from "react-bootstrap";
 
 export class App extends Component {
 	constructor(props) {
@@ -15,6 +16,7 @@ export class App extends Component {
 			map: "",
 			weatherData: [],
 			showData: false,
+			errors: "",
 		};
 	}
 
@@ -25,7 +27,11 @@ export class App extends Component {
 			city_name: city_name,
 		});
 	};
-
+	// handleError = (e) => {
+	// 	this.setState({
+	// 		errors: this.state.errors,
+	// 	});
+	// };
 	handleSubmit = (e) => {
 		e.preventDefault();
 		let config = {
@@ -53,6 +59,12 @@ export class App extends Component {
 							weatherData: res.data,
 						});
 					});
+			})
+			.catch((e) => {
+				console.log(e.response.data.error);
+				this.setState({
+					errors: e.response.data.error,
+				});
 			});
 	};
 	render() {
@@ -62,6 +74,7 @@ export class App extends Component {
 				<SearchForm
 					handleLocation={this.handleLocation}
 					handleSubmit={this.handleSubmit}
+					handleError={this.handleError}
 				/>
 				{this.state.showData && (
 					<Location
@@ -79,6 +92,12 @@ export class App extends Component {
 						</>
 					);
 				})}
+				{this.state.errors &&
+					["danger"].map((variant, idx) => (
+						<Alert key={idx} variant={variant}>
+							This is a {this.state.errors} alert—check it out!
+						</Alert>
+					))}
 			</div>
 		);
 	}
