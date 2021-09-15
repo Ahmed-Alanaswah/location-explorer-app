@@ -21,9 +21,51 @@ This Project connects the user to API servers to get data related to cities, hen
 
 ## Credit and Collaborations
 
-https://301city-explorer-sana-ishaqat.netlify.app
+https://ahmed-alanaswah-location-explorer.netlify.app/
 
 ## Lab 06
+
+Name of feature: location explorer to search about location and show data.
+
+Estimate of time needed to complete: 6Hours
+
+Start time: 2:30 pm
+
+Finish time: 11:30pm
+
+Actual time needed to complete: 9 Hours
+
+![ web request-response cycle](src/img/plan.jpg)
+
+## Lab 07
+
+Name of feature: location explorer to search about location and show data.
+
+Estimate of time needed to complete: 6Hours
+
+Start time: 2:30 pm
+
+Finish time: 11:30pm
+
+Actual time needed to complete: 9 Hours
+
+![ web request-response cycle](src/img/plan.jpg)
+
+## Lab 08
+
+Name of feature: location explorer to search about location and show data.
+
+Estimate of time needed to complete: 6Hours
+
+Start time: 2:30 pm
+
+Finish time: 11:30pm
+
+Actual time needed to complete: 9 Hours
+
+![ web request-response cycle](src/img/plan.jpg)
+
+## Lab 09
 
 Name of feature: location explorer to search about location and show data.
 
