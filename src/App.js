@@ -15,7 +15,9 @@ export class App extends Component {
 			lon: "",
 			map: "",
 			weatherData: [],
+			cleanedData: [],
 			showData: false,
+
 			errors: "",
 		};
 	}
@@ -60,6 +62,18 @@ export class App extends Component {
 						});
 					});
 			})
+			.then(() => {
+				axios
+					.get(
+						`${process.env.REACT_APP_BACKEND_URL}/movies?query=${this.state.city_name}`
+					)
+					.then((res) => {
+						this.setState({
+							cleanedData: res.data,
+						});
+						console.log(this.state.cleanedData);
+					});
+			})
 			.catch((e) => {
 				console.log(e.response.data.error);
 				this.setState({
@@ -89,6 +103,22 @@ export class App extends Component {
 						<>
 							<h1>{item.date}</h1>
 							<h1>{item.description}</h1>
+						</>
+					);
+				})}
+
+				{this.state.cleanedData.map((item) => {
+					return (
+						<>
+							<h3>{item.title}</h3>
+							<h3>{item.overview}</h3>
+							<h3> {item.vote_average}</h3>
+							<h3>{item.vote_count}</h3>
+							<h3>
+								<img src={item.poster_path} alt={item.title} />
+							</h3>
+							<h3>{item.popularity}</h3>
+							<h3>{item.release_date}</h3>
 						</>
 					);
 				})}
